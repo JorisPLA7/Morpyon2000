@@ -1,10 +1,8 @@
 import Joris2000
+import poke
 global debug
 debug = 0 ## augmente l'affichage d'infos en console, à manier avec modération .
 
-''' il me faut implanter la tenue d'un mathDraw pour les IA
-il me faut retrouver la commande pour pouvoir énumerer et situer les emptyChar dans mon code
-'''
 
 class Game():
     def __init__(self):
@@ -24,7 +22,13 @@ class Game():
     def finish(self, mathPlayerVal, moove):
         self.draw[moove[0]][moove[1]] = playerChar[activePlayer]
         self.mathDraw[moove[0]][moove[1]] = mathPlayerVal
-
+        results = poke.meIfVictory(self.mathDraw)
+        if results > 0:
+            print('PAY ATTENTION ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !')
+            if results == 1:
+                print('player 1 win the game !')
+            if results == 2:
+                print('player 2 win the game !')
 class Player ():
     def __init__(self, number, controller):
         premier = [0,5,7]
