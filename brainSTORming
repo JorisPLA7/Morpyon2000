@@ -1,0 +1,40 @@
+idée :
+Développer un jeu de puissance 4 graphique en python.
+
+ordre de développement :
+  Créer un sommaire morpion en console
+    programmer orienté objet pour implémenter l'IA facilement
+  Créer une IA qui pilote le joueur Jaune tout seul
+    Créer un imbattable si possible en terme de puissance de calculs
+      Tester une IA qui teste tous les scénarios possibles
+      si c'est trop long alors tester aléatoirement un nombre X de coups et faire des probas à voison
+    Implémenter l'apprentissage machine <3
+      apprendre à mémoriser une situation
+        savoir la reconnaître après
+        faire un truc léger svppppp
+        mémoriser les coup joués ensuite
+        je pense que faut creuser du coté des colonnes , avec un incrément de nbrs premiers , *le nbr de jetons déja dans la colonne
+
+      Apprendre à gerer les BDD
+      Créer la base de l'interface pour un jeu de puissance 4 1v1 avec le framework.
+
+
+
+
+
+
+
+
+
+
+4inARow game dev with python. Includes Tkinter Gui, Canvas, and Machine learning on a DB
+
+
+
+coord sys :
+  789
+  456
+  123
+
+  (0,0) (1,0)
+  (0,1) (1,1)
