@@ -18,6 +18,7 @@ ordre de développement :
       Apprendre à gerer les BDD
       Créer la base de l'interface pour un jeu de puissance 4 1v1 avec le framework.
 
+ex draw : d = [[0,5,0],[7,7,7],[5,5,5]]
 
 on est d'accord :
 

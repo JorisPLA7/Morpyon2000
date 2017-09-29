@@ -1,8 +1,38 @@
 import Joris2000
 import poke
+import random
 global debug
-debug = 0 ## augmente l'affichage d'infos en console, à manier avec modération .
+debug = 1 ## augmente l'affichage d'infos en console, à manier avec modération .
+global iterations
+iterations = 50
+def IA(playerNumber, mathDraw):
+    liveDraw = mathDraw
+    if playerNumber==1:
+        val=5
+    else:
+        val=7
 
+    for i in len(liveDraw):
+        for j in len(liveDraw[i]):
+            if liveDraw[i][j]==0: #la case est libre
+                liveDraw[i][j]=val
+def montecarlo(playerNumber,liveDraw):
+    test=victoire(liveDraw)
+    if test==playerNumber:
+        score=iterations
+        return score
+    else :
+        score=0
+        for parties in range iterations:
+            while victoire(liveDraw)==0:
+                random.randint
+                while liveDraw
+
+
+
+def victoire(mathDraw):
+    #effectuer les sommes
+    #return le numéro du gagnant sinon 0
 
 class Game():
     def __init__(self):
@@ -29,6 +59,9 @@ class Game():
                 print('player 1 win the game !')
             if results == 2:
                 print('player 2 win the game !')
+
+
+
 class Player ():
     def __init__(self, number, controller):
         premier = [0,5,7]
@@ -39,7 +72,8 @@ class Player ():
 
     def play(self, mathDraw, draw):
         if self.controller == 'AI':
-            pass
+            moove = Joris2000.AI(playerNumber, mathDraw)
+
         if self.controller == 'human':
             print("It's player{}'s Turn :".format(self.playerNumber))
             print('{}|{}|{}'.format(draw[0][0],draw[1][0],draw[2][0]))
@@ -54,14 +88,13 @@ class Player ():
                 print('{}|{}|{}'.format(mathDraw[0][1],mathDraw[1][1],mathDraw[2][1]))
                 print('-----')
                 print('{}|{}|{}'.format(mathDraw[0][2],mathDraw[1][2],mathDraw[2][2]))
-
-
+                print(mathDraw)
             while not self.accepted:
                 moove = self.inputToCoord(input('press a number from 1 to 9 to play.  '))
                 self.accepted = currentGame.moovePossible(moove)
-            currentGame.finish(self.mathVal, moove)
-            self.accepted = False
 
+        currentGame.finish(self.mathVal, moove)
+        self.accepted = False
 
     def inputToCoord(self, inputNumber):
         if inputNumber == '1' : return (0,2)
@@ -89,7 +122,7 @@ def routine():
     currentGame = Game()
     player = {}
     player[1] = Player(1, 'human')
-    player[2] = Player(2, 'human')
+    player[2] = Player(2, 'AI')
     while 1:
         player[activePlayer].play(currentGame.mathDraw, currentGame.draw)
         activePlayer, inactivePlayer = inactivePlayer, activePlayer
