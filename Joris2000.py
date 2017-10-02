@@ -34,8 +34,8 @@ def tryHard(self, liveDraw):
 
 
 if __name__ == '__main__':
-import poke
-myAI = AI(1)
-myAI.tryHard([[7,5,7],[7,7,5],[5,0,0]])
+    import poke
+    myAI = AI(1)
+    myAI.tryHard([[7,5,7],[7,7,5],[5,0,0]])
 
 #a = [[5,5,5],[7,0,7],[7,0,5]]

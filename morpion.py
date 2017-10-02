@@ -5,35 +5,13 @@ global debug
 debug = 1 ## augmente l'affichage d'infos en console, à manier avec modération .
 global iterations
 iterations = 50
-def IA(playerNumber, mathDraw):
-    liveDraw = mathDraw
-    if playerNumber==1:
-        val=5
-    else:
-        val=7
-
-    for i in len(liveDraw):
-        for j in len(liveDraw[i]):
-            if liveDraw[i][j]==0: #la case est libre
-                liveDraw[i][j]=val
-def montecarlo(playerNumber,liveDraw):
-    test=victoire(liveDraw)
-    if test==playerNumber:
-        score=iterations
-        return score
-    else :
-        score=0
-        for parties in range iterations:
-            while victoire(liveDraw)==0:
-                random.randint
-                while liveDraw
-
-
+global premier
+premier = [0,5,7]
 
 def victoire(mathDraw):
     #effectuer les sommes
     #return le numéro du gagnant sinon 0
-
+    pass
 class Game():
     def __init__(self):
         self.draw = [[emptyChar for n in range (0,3)] for n in range (0,3)]
@@ -61,37 +39,76 @@ class Game():
                 print('player 2 win the game !')
 
 
+class Bot():
+    def __init__(self, number,iterations):
+        self.iterations = iterations
+        self.playerNumber = number
+        if self.playerNumber == 1 : self.opponentNumber = 2
+        if self.playerNumber == 2 : self.opponentNumber = 1
 
-class Player ():
-    def __init__(self, number, controller):
+        self.mathVal = premier[number]
+
+    def IA(self):
+        self.liveDraw = currentGame.mathDraw
+        for i in range(0,len(self.liveDraw)):
+            for j in range(0,len(self.liveDraw[i])):
+                if self.liveDraw[i][j]==0: #la case est libre
+                    self.liveDraw[i][j]=premier[playerNumber]
+                    scoreDraw[i][j] =self.montecarlo()
+
+    def montecarlo(self):
+        test=poke.meIfVictory(self.liveDraw)
+        if test==playerNumber:
+            score=self.iterations
+            return score
+
+        else :
+            score=0
+            for parties in range(0,self.iterations):
+                while test==0:
+                    for token in range(0,10): #paire , joueur 1 joue , impaire joueur 2
+                        posx = random.randint(0,2)
+                        posy = random.randint(0,2)
+                        while moovePossible(posx,posy) == 0:
+                            posx = random.randint(0,2)
+                            posy = random.randint(0,2)
+                        self.liveDraw[posx][posy]= premier[(token+self.playerNumber)%2)]
+                        test = poke.meIfVictory()
+                        if test == 0:
+                            pass
+                        if
+
+                         while  == 0
+                            pass
+                        ###########################
+
+
+
+class Human ():
+    def __init__(self, number):
         premier = [0,5,7]
         self.playerNumber = number
-        self.controller = controller
         self.accepted = False
         self.mathVal = premier[number]
 
     def play(self, mathDraw, draw):
-        if self.controller == 'AI':
-            moove = Joris2000.AI(playerNumber, mathDraw)
-
-        if self.controller == 'human':
-            print("It's player{}'s Turn :".format(self.playerNumber))
-            print('{}|{}|{}'.format(draw[0][0],draw[1][0],draw[2][0]))
+        print("It's player{}'s Turn :".format(self.playerNumber))
+        print('{}|{}|{}'.format(draw[0][0],draw[1][0],draw[2][0]))
+        print('-----')
+        print('{}|{}|{}'.format(draw[0][1],draw[1][1],draw[2][1]))
+        print('-----')
+        print('{}|{}|{}'.format(draw[0][2],draw[1][2],draw[2][2]))
+        if debug :
+            print("visible /\ , mathématique \/")
+            print('{}|{}|{}'.format(mathDraw[0][0],mathDraw[1][0],mathDraw[2][0]))
             print('-----')
-            print('{}|{}|{}'.format(draw[0][1],draw[1][1],draw[2][1]))
+            print('{}|{}|{}'.format(mathDraw[0][1],mathDraw[1][1],mathDraw[2][1]))
             print('-----')
-            print('{}|{}|{}'.format(draw[0][2],draw[1][2],draw[2][2]))
-            if debug :
-                print("visible /\ , mathématique \/")
-                print('{}|{}|{}'.format(mathDraw[0][0],mathDraw[1][0],mathDraw[2][0]))
-                print('-----')
-                print('{}|{}|{}'.format(mathDraw[0][1],mathDraw[1][1],mathDraw[2][1]))
-                print('-----')
-                print('{}|{}|{}'.format(mathDraw[0][2],mathDraw[1][2],mathDraw[2][2]))
-                print(mathDraw)
-            while not self.accepted:
-                moove = self.inputToCoord(input('press a number from 1 to 9 to play.  '))
-                self.accepted = currentGame.moovePossible(moove)
+            print('{}|{}|{}'.format(mathDraw[0][2],mathDraw[1][2],mathDraw[2][2]))
+            print(mathDraw)
+        while not self.accepted:
+            moove = self.inputToCoord(input('press a number from 1 to 9 to play.  '))
+            self.accepted = currentGame.moovePossible(moove)
 
         currentGame.finish(self.mathVal, moove)
         self.accepted = False
@@ -121,8 +138,9 @@ def routine():
     playerChar = [' ','X','O']
     currentGame = Game()
     player = {}
-    player[1] = Player(1, 'human')
-    player[2] = Player(2, 'AI')
+    player[1] = Human(1)
+    player[2] = Human(2)
+    #player[2] = Bot(2, 50'''iterations''')
     while 1:
         player[activePlayer].play(currentGame.mathDraw, currentGame.draw)
         activePlayer, inactivePlayer = inactivePlayer, activePlayer
